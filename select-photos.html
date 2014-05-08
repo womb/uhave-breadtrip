@@ -1,0 +1,482 @@
+<!DOCTYPE html><!--[if lt IE 7]>  <html class="ie ie6 lte9 lte8 lte7"> <![endif]-->
+<!--[if IE 7]>     <html class="ie ie7 lte9 lte8 lte7"> <![endif]-->
+<!--[if IE 8]>     <html class="ie ie8 lte9 lte8"> <![endif]-->
+<!--[if IE 9]>     <html class="ie ie9 lte9"> <![endif]-->
+<!--[if gt IE 9]>  <html class="ie gte9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en" class="no-ie"><!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Demo</title>
+    <meta name="description" content="description">
+    <meta name="keywords" content="keywords">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=640, maximum-scale=1.0, user-scalable=yes">
+    <link rel="stylesheet" href="assets/build.css">
+    <link rel="stylesheet" href="assets/uhave-breadtrip.css"><style type="text/css">.select-all-journeys .icon-tick {
+  width: 42px;
+  height: 42px;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-image: url("assets/img/icon/tick-grey-42x42.png");
+}
+.select-all-journeys.selected .icon-tick {
+  background-image: url("assets/img/icon/tick-green-42x42.png");
+}
+</style>
+  </head>
+  <body class="environment-development">
+    <div class="page-container">
+      <div class="block page-header">
+        <div class="width-100p height-88 background-color-4abdcc">
+          <div class="content-container">
+            <div class="position-relative">
+              <div class="position-absolute top-0 left-0">
+                <div class="height-88 vertical-center">
+                  <img src="assets/img/icon/arrow-left-white-40x40.png">
+                </div>
+              </div>
+              <div class="horizontal-center">
+                <div class="height-88 vertical-center">
+                  <div class="font-size-40 color-white">制作游记</div>
+                </div>
+              </div>
+              <div class="position-absolute top-0 right-0">
+                <div class="height-88 vertical-center">
+                  <img src="assets/img/icon/arrow-right-white-40x40.png">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="page-container">
+      <div class="block trip-name">
+        <div class="background-color-fbfbfb">
+          <div class="content-container">
+            <div class="height-150 vertical-center">
+              <div class="font-size-40 color-4abdcc margin-bottom-23">旅程名称</div>
+              <div class="font-size-24 color-999999">2011.08.25</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="block money-belt">
+        <div class="cols">
+          <div class="col width-32p select-all-journeys">
+            <div class="background-color-4abdcc">
+              <div class="horizontal-center">
+                <div class="cols">
+                  <div class="col margin-right-20">
+                    <div class="height-88 vertical-center">
+                      <div class="icon-tick"></div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="height-88 vertical-center">
+                      <div class="font-size-28 color-white">全选</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col width-68p">
+            <div class="background-color-white">
+              <div class="horizontal-center">
+                <div class="cols">
+                  <div class="col margin-right-40">
+                    <div class="height-88 vertical-center">
+                      <span class="font-size-28 color-5c5c5c">已选择</span>
+                      <span class="font-size-28 color-4abdcc total-count">0</span>
+                      <span class="font-size-28 color-5c5c5c">页</span>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="cols">
+                      <div class="col margin-right-10">
+                        <div class="height-88 vertical-center">
+                          <span class="font-size-28 color-5c5c5c">单价</span>
+                        </div>
+                      </div>
+                      <div class="col margin-right-15">
+                        <div class="height-88 vertical-center">
+                          <span class="font-size-48 color-4abdcc checkout-amount">100</span>
+                        </div>
+                      </div>
+                      <div class="col">
+                        <div class="height-88 vertical-center">
+                          <img src="assets/img/icon/question-mark-40x40.png">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="background-color-fbf7ed">
+        <div class="padding-bottom-20">
+          <div class="block journey-list">
+            <div class="journey-list list">
+              <div class="journey journey-date">
+                <div class="background position-relative">
+                  <div class="position-absolute left-50 top-70 width-8 height-100p background-color-e7ddc6"></div>
+                  <div class="content-container padding-top-15 padding-bottom-15">
+                    <div style="background-image: url('assets/img/page/select-photos/circle-32x32.png'); background-repeat: no-repeat; background-position: 8px center;" class="background">
+                      <div class="padding-left-50">
+                        <div class="height-80 vertical-center">
+                          <span class="text font-size-28 color-a8915e margin-right-20">12月11日</span>
+                          <span class="text font-size-28 color-a8915e">第1天</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="journey journey-day">
+                <div style="background-image: url('assets/img/page/select-photos/line-8x1.png'); background-repeat: repeat-y; background-position: 50px 0px;" class="background">
+                  <div class="content-container padding-top-15 padding-bottom-15">
+                    <div class="cols background-color-white">
+                      <div class="col">
+                        <div style="background-image: url('assets/img/icon/air-plane-white-44x24.png'); background-repeat: no-repeat; background-position: center center;" class="square width-100 height-100 background-color-4abdcc position-relative">
+                          <div class="icon-tick width-42 height-42 position-absolute left--21 top-50p margin-top--21"></div>
+                        </div>
+                      </div>
+                      <div class="col padding-left-20 margin-right-30">
+                        <div class="height-100 vertical-center">
+                          <span class="text font-size-36 color-5c5c5c">DAY 2</span>
+                        </div>
+                      </div>
+                      <div class="col">
+                        <div class="height-100 vertical-center">
+                          <span class="text font-size-22 color-999999">2012.10.27</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="journey journey-photo">
+                <div style="background-image: url('assets/img/page/select-photos/line-8x1.png'); background-repeat: repeat-y; background-position: 50px 0px;" class="background">
+                  <div class="content-container padding-top-15 padding-bottom-15">
+                    <div class="background-color-white width-100p height-183 position-relative">
+                      <div class="position-absolute left-0 top-0">
+                        <div class="photo width-183 height-183 position-relative">
+                          <img src="assets/img/page/select-photos/photo-183x183.jpg">
+                          <div class="icon-tick width-42 height-42 position-absolute left--21 top-50p margin-top--21"></div>
+                        </div>
+                      </div>
+                      <div class="padding-left-183">
+                        <div class="padding-left-20 padding-right-20 padding-top-20">
+                          <div class="journey-description margin-bottom-10">
+                            <div class="font-size-28 color-5c5c5c">今天离开大部队，一早来...</div>
+                          </div>
+                          <div class="journey-time margin-bottom-30">
+                            <div class="cols">
+                              <div class="col margin-right-7">
+                                <div class="height-30 vertical-center">
+                                  <img src="assets/img/icon/clock-grey-24x25.png" class="display-block">
+                                </div>
+                              </div>
+                              <div class="col">
+                                <div class="height-30 vertical-center">
+                                  <div class="font-size-24 color-999999">18:30</div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="journey-location">
+                            <div class="width-100p background-color-f2f2f2 border-radius-50">
+                              <div class="cols">
+                                <div class="col padding-left-20 margin-right-5">
+                                  <div class="height-44 vertical-center">
+                                    <img src="assets/img/icon/tree-green-34x27.png">
+                                  </div>
+                                </div>
+                                <div class="col">
+                                  <div class="height-44 vertical-center">
+                                    <div class="font-size-24 color-4abdcc">Kjos Park</div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="journey journey-photo">
+                <div style="background-image: url('assets/img/page/select-photos/line-8x1.png'); background-repeat: repeat-y; background-position: 50px 0px;" class="background">
+                  <div class="content-container padding-top-15 padding-bottom-15">
+                    <div class="background-color-white width-100p height-183 position-relative">
+                      <div class="position-absolute left-0 top-0">
+                        <div class="photo width-183 height-183 position-relative">
+                          <img src="assets/img/page/select-photos/photo-183x183.jpg">
+                          <div class="icon-tick width-42 height-42 position-absolute left--21 top-50p margin-top--21"></div>
+                        </div>
+                      </div>
+                      <div class="padding-left-183">
+                        <div class="padding-left-20 padding-right-20 padding-top-20">
+                          <div class="journey-description margin-bottom-10">
+                            <div class="font-size-28 color-5c5c5c">今天离开大部队，一早来...</div>
+                          </div>
+                          <div class="journey-time margin-bottom-30">
+                            <div class="cols">
+                              <div class="col margin-right-7">
+                                <div class="height-30 vertical-center">
+                                  <img src="assets/img/icon/clock-grey-24x25.png" class="display-block">
+                                </div>
+                              </div>
+                              <div class="col">
+                                <div class="height-30 vertical-center">
+                                  <div class="font-size-24 color-999999">18:30</div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="journey-location">
+                            <div class="width-100p background-color-f2f2f2 border-radius-50">
+                              <div class="cols">
+                                <div class="col padding-left-20 margin-right-5">
+                                  <div class="height-44 vertical-center">
+                                    <img src="assets/img/icon/tree-green-34x27.png">
+                                  </div>
+                                </div>
+                                <div class="col">
+                                  <div class="height-44 vertical-center">
+                                    <div class="font-size-24 color-4abdcc">Kjos Park</div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="journey journey-text">
+                <div style="background-image: url('assets/img/page/select-photos/line-8x1.png'); background-repeat: repeat-y; background-position: 50px 0px;" class="background">
+                  <div class="content-container padding-top-15">
+                    <div class="background-color-white width-100p position-relative">
+                      <div class="icon-tick width-42 height-42 position-absolute left--21 top-50p margin-top--21"></div>
+                      <div class="padding-20">
+                        <div class="journey-description margin-bottom-20">
+                          <div class="font-size-28 color-5c5c5c">今天离开大部队，一早来到接待中心买了一张地图，决定选择一条较长的线路徒步去看Kjos的五彩石，之后前往下面的农场看望...</div>
+                        </div>
+                        <div class="journey-time">
+                          <div class="cols">
+                            <div class="col margin-right-7">
+                              <div class="height-30 vertical-center">
+                                <img src="assets/img/icon/clock-grey-24x25.png" class="display-block">
+                              </div>
+                            </div>
+                            <div class="col">
+                              <div class="height-30 vertical-center">
+                                <div class="font-size-24 color-999999">10:30</div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="padding-bottom-20">
+          <div class="block journey-list">
+            <div class="journey-list list">
+              <div class="journey journey-date">
+                <div class="background position-relative">
+                  <div class="position-absolute left-50 top-70 width-8 height-100p background-color-e7ddc6"></div>
+                  <div class="content-container padding-top-15 padding-bottom-15">
+                    <div style="background-image: url('assets/img/page/select-photos/circle-32x32.png'); background-repeat: no-repeat; background-position: 8px center;" class="background">
+                      <div class="padding-left-50">
+                        <div class="height-80 vertical-center">
+                          <span class="text font-size-28 color-a8915e margin-right-20">12月11日</span>
+                          <span class="text font-size-28 color-a8915e">第1天</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="journey journey-day">
+                <div style="background-image: url('assets/img/page/select-photos/line-8x1.png'); background-repeat: repeat-y; background-position: 50px 0px;" class="background">
+                  <div class="content-container padding-top-15 padding-bottom-15">
+                    <div class="cols background-color-white">
+                      <div class="col">
+                        <div style="background-image: url('assets/img/icon/air-plane-white-44x24.png'); background-repeat: no-repeat; background-position: center center;" class="square width-100 height-100 background-color-4abdcc position-relative">
+                          <div class="icon-tick width-42 height-42 position-absolute left--21 top-50p margin-top--21"></div>
+                        </div>
+                      </div>
+                      <div class="col padding-left-20 margin-right-30">
+                        <div class="height-100 vertical-center">
+                          <span class="text font-size-36 color-5c5c5c">DAY 2</span>
+                        </div>
+                      </div>
+                      <div class="col">
+                        <div class="height-100 vertical-center">
+                          <span class="text font-size-22 color-999999">2012.10.27</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="journey journey-photo">
+                <div style="background-image: url('assets/img/page/select-photos/line-8x1.png'); background-repeat: repeat-y; background-position: 50px 0px;" class="background">
+                  <div class="content-container padding-top-15 padding-bottom-15">
+                    <div class="background-color-white width-100p height-183 position-relative">
+                      <div class="position-absolute left-0 top-0">
+                        <div class="photo width-183 height-183 position-relative">
+                          <img src="assets/img/page/select-photos/photo-183x183.jpg">
+                          <div class="icon-tick width-42 height-42 position-absolute left--21 top-50p margin-top--21"></div>
+                        </div>
+                      </div>
+                      <div class="padding-left-183">
+                        <div class="padding-left-20 padding-right-20 padding-top-20">
+                          <div class="journey-description margin-bottom-10">
+                            <div class="font-size-28 color-5c5c5c">今天离开大部队，一早来...</div>
+                          </div>
+                          <div class="journey-time margin-bottom-30">
+                            <div class="cols">
+                              <div class="col margin-right-7">
+                                <div class="height-30 vertical-center">
+                                  <img src="assets/img/icon/clock-grey-24x25.png" class="display-block">
+                                </div>
+                              </div>
+                              <div class="col">
+                                <div class="height-30 vertical-center">
+                                  <div class="font-size-24 color-999999">18:30</div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="journey-location">
+                            <div class="width-100p background-color-f2f2f2 border-radius-50">
+                              <div class="cols">
+                                <div class="col padding-left-20 margin-right-5">
+                                  <div class="height-44 vertical-center">
+                                    <img src="assets/img/icon/tree-green-34x27.png">
+                                  </div>
+                                </div>
+                                <div class="col">
+                                  <div class="height-44 vertical-center">
+                                    <div class="font-size-24 color-4abdcc">Kjos Park</div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="journey journey-photo">
+                <div style="background-image: url('assets/img/page/select-photos/line-8x1.png'); background-repeat: repeat-y; background-position: 50px 0px;" class="background">
+                  <div class="content-container padding-top-15 padding-bottom-15">
+                    <div class="background-color-white width-100p height-183 position-relative">
+                      <div class="position-absolute left-0 top-0">
+                        <div class="photo width-183 height-183 position-relative">
+                          <img src="assets/img/page/select-photos/photo-183x183.jpg">
+                          <div class="icon-tick width-42 height-42 position-absolute left--21 top-50p margin-top--21"></div>
+                        </div>
+                      </div>
+                      <div class="padding-left-183">
+                        <div class="padding-left-20 padding-right-20 padding-top-20">
+                          <div class="journey-description margin-bottom-10">
+                            <div class="font-size-28 color-5c5c5c">今天离开大部队，一早来...</div>
+                          </div>
+                          <div class="journey-time margin-bottom-30">
+                            <div class="cols">
+                              <div class="col margin-right-7">
+                                <div class="height-30 vertical-center">
+                                  <img src="assets/img/icon/clock-grey-24x25.png" class="display-block">
+                                </div>
+                              </div>
+                              <div class="col">
+                                <div class="height-30 vertical-center">
+                                  <div class="font-size-24 color-999999">18:30</div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="journey-location">
+                            <div class="width-100p background-color-f2f2f2 border-radius-50">
+                              <div class="cols">
+                                <div class="col padding-left-20 margin-right-5">
+                                  <div class="height-44 vertical-center">
+                                    <img src="assets/img/icon/tree-green-34x27.png">
+                                  </div>
+                                </div>
+                                <div class="col">
+                                  <div class="height-44 vertical-center">
+                                    <div class="font-size-24 color-4abdcc">Kjos Park</div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="journey journey-text">
+                <div style="background-image: url('assets/img/page/select-photos/line-8x1.png'); background-repeat: repeat-y; background-position: 50px 0px;" class="background">
+                  <div class="content-container padding-top-15">
+                    <div class="background-color-white width-100p position-relative">
+                      <div class="icon-tick width-42 height-42 position-absolute left--21 top-50p margin-top--21"></div>
+                      <div class="padding-20">
+                        <div class="journey-description margin-bottom-20">
+                          <div class="font-size-28 color-5c5c5c">今天离开大部队，一早来到接待中心买了一张地图，决定选择一条较长的线路徒步去看Kjos的五彩石，之后前往下面的农场看望...</div>
+                        </div>
+                        <div class="journey-time">
+                          <div class="cols">
+                            <div class="col margin-right-7">
+                              <div class="height-30 vertical-center">
+                                <img src="assets/img/icon/clock-grey-24x25.png" class="display-block">
+                              </div>
+                            </div>
+                            <div class="col">
+                              <div class="height-30 vertical-center">
+                                <div class="font-size-24 color-999999">10:30</div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="assets/build.js"></script>
+    <script>
+      require('jquery')(function () {
+        require('uhave-breadtrip').page.selectPhotos();
+      });
+    </script>
+  </body>
+</html>
