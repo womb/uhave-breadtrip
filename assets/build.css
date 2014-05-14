@@ -11841,6 +11841,53 @@ th {
   box-sizing: border-box;
 }
 
+
+
+.ui.modal {
+  display: none;
+  z-index: 123456789;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.2);
+  background-image: url("base-ui-modal/img/trans-bg.png");
+  background-repeat: repeat;
+}
+.ui.modal.open {
+  display: block;
+}
+.ui.modal .display-table {
+  display: table;
+}
+.ui.modal .display-table-cell {
+  display: table-cell;
+}
+.ui.modal .vertical-align-middle {
+  vertical-align: middle;
+}
+.ui.modal .margin-auto {
+  margin: auto;
+}
+.ui.modal .modal-inner {
+  display: table;
+  position: relative;
+  margin: auto;
+  opacity: 1;
+  background-color: #fff;
+}
+.ui.modal .modal-content {
+  padding: 10px;
+}
+.ui.modal .close-modal-button {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
 .row{margin-left:-15px;margin-right:-15px;}
 .row:before,.row:after{display:table;content:" ";line-height:0}
 .row:after{clear:both}

@@ -201,7 +201,6 @@ require.relative = function(parent) {
 };
 
 
-
 require.register("polyfill-array.prototype.map/component.js", function(exports, require, module){
 require('./Array.prototype.map');
 
@@ -680,6 +679,136 @@ module.exports = function Eventy(object) {
 }
 
 });
+require.register("base-ui-modal/index.js", function(exports, require, module){
+require('./lib/auto-init');
+
+module.exports = require('./lib/modal');
+
+});
+require.register("base-ui-modal/lib/modal.js", function(exports, require, module){
+var eventy = require('eventy');
+var trigger = require('./trigger');
+var j = require('jquery');
+
+module.exports = Modal;
+
+function Modal(el) {
+  var self = eventy(this);
+
+  self.el = el;
+  self.windowHeightElement = self.select('.window-height');
+
+  j(self.el).on('click', '[data-modal-trigger-close]', onClickCloseModal);
+  j(self.el).on('click', '.modal-inner', onClickInner);
+  j(self.el).on('click', onClickOuter);
+
+  function onClickCloseModal(click) {
+    self.close();
+  }
+
+  function onClickInner(click) {
+    if (!j(click.target).attr('data-bubble-event')) {
+      click.stopPropagation();
+    }
+  }
+
+  function onClickOuter(click) {
+    if (j(self.el).attr('data-ignore-outer-click')) {
+      return;
+    }
+
+    self.close();
+  }
+
+  trigger.on('open-modal', function (selector) {
+    if (j(selector).get(0) === self.el) {
+      self.open();
+    }
+  });
+
+  trigger.on('close-modal', function (selector) {
+    if (j(selector).get(0) === self.el) {
+      self.close();
+    }
+  });
+
+  trigger.on('toggle-modal', function (selector) {
+    if (j(selector).get(0) === self.el) {
+      self.toggle();
+    }
+  });
+
+  /**
+   * Keep window-height element's height update with window's height
+   */
+  if (self.windowHeightElement) {
+    self.windowHeightElement.style.height = getWindowHeight() + 'px';
+  }
+
+  window.addEventListener('resize', function (resizeEvent) {
+    if (self.windowHeightElement) {
+      self.windowHeightElement.style.height = getWindowHeight() + 'px';
+    }
+  });
+}
+
+Modal.prototype.select = function (selector) {
+  return j(this.el).find(selector).get(0);
+}
+
+Modal.prototype.close = function () {
+  j(this.el).removeClass('open');
+  this.trigger('close');
+}
+
+Modal.prototype.open = function () {
+  j(this.el).addClass('open');
+  this.trigger('open');
+}
+
+Modal.prototype.toggle = function () {
+  if (j(this.el).hasClass('open')) {
+    this.close();
+  } else {
+    this.open();
+  }
+}
+
+function getWindowHeight() {
+  return "innerHeight" in window ? window.innerHeight : document.documentElement.offsetHeight;
+}
+
+});
+require.register("base-ui-modal/lib/trigger.js", function(exports, require, module){
+var eventy = require('eventy');
+var $ = require('jquery');
+var trigger = eventy({});
+
+$(function () {
+  $(document).on('click', '[data-open-modal]', onClickOpenModal);
+
+  function onClickOpenModal(click) {
+    click.stopPropagation();
+    click.preventDefault();
+    trigger.trigger('open-modal', $(this).attr('data-open-modal'));
+  }
+});
+
+module.exports = trigger;
+
+});
+require.register("base-ui-modal/lib/auto-init.js", function(exports, require, module){
+var $ = require('jquery');
+var Modal = require('./modal');
+
+$(function () {
+  $('.ui.modal.auto-init').each(function (i, element) {
+    new Modal(element);
+  });
+});
+
+});
+
 require.register("womb-controller/index.js", function(exports, require, module){
 var j = require('jquery');
 var eventy = require('eventy');
@@ -10802,6 +10931,7 @@ JourneyText.prototype.deselect = function () {
 require.register("uhave-breadtrip/app/controller/make-order.js", function(exports, require, module){
 var j = require('jquery');
 var controller = require('controller');
+var Modal = require('modal');
 
 module.exports = function () {
   new MakeOrder(document.documentElement);
@@ -10809,10 +10939,29 @@ module.exports = function () {
 
 var MakeOrder = controller(function (el) {
   var self = this;
-});
+
+  self.el = el;
+
+  var useConsumingPointModal = new Modal(self.select('#modal-use-consuming-point'));
+
+  self.select('.do-change-discount').onclick = function (clickEvent) {
+    clickEvent.preventDefault();
+    useConsumingPointModal.open();
+  }
+
+  self.select('#modal-use-consuming-point .do-ok').onclick = function (clickEvent) {
+    clickEvent.preventDefault();
+    useConsumingPointModal.close();
+  }
+
+  self.select('#modal-use-consuming-point .do-do-not-use-points').onclick = function (clickEvent) {
+    clickEvent.preventDefault();
+    useConsumingPointModal.close();
+  }
 
 });
 
+});
 
 
 
@@ -10826,6 +10975,33 @@ var MakeOrder = controller(function (el) {
 
 
 
+
+
+
+require.alias("base-ui-modal/index.js", "uhave-breadtrip/deps/modal/index.js");
+require.alias("base-ui-modal/lib/modal.js", "uhave-breadtrip/deps/modal/lib/modal.js");
+require.alias("base-ui-modal/lib/trigger.js", "uhave-breadtrip/deps/modal/lib/trigger.js");
+require.alias("base-ui-modal/lib/auto-init.js", "uhave-breadtrip/deps/modal/lib/auto-init.js");
+require.alias("base-ui-modal/index.js", "uhave-breadtrip/deps/modal/index.js");
+require.alias("base-ui-modal/index.js", "modal/index.js");
+require.alias("shallker-wang-eventy/index.js", "base-ui-modal/deps/eventy/index.js");
+require.alias("shallker-wang-eventy/lib/eventy.js", "base-ui-modal/deps/eventy/lib/eventy.js");
+require.alias("shallker-wang-eventy/index.js", "base-ui-modal/deps/eventy/index.js");
+require.alias("shallker-wang-dever/component.js", "shallker-wang-eventy/deps/dever/component.js");
+require.alias("shallker-wang-dever/util/dever.js", "shallker-wang-eventy/deps/dever/util/dever.js");
+require.alias("shallker-wang-dever/component.js", "shallker-wang-eventy/deps/dever/index.js");
+require.alias("polyfill-array.prototype.map/component.js", "shallker-wang-dever/deps/Array.prototype.map/component.js");
+require.alias("polyfill-array.prototype.map/Array.prototype.map.js", "shallker-wang-dever/deps/Array.prototype.map/Array.prototype.map.js");
+require.alias("polyfill-array.prototype.map/component.js", "shallker-wang-dever/deps/Array.prototype.map/index.js");
+require.alias("polyfill-array.prototype.map/component.js", "polyfill-array.prototype.map/index.js");
+require.alias("shallker-array-foreach-shim/index.js", "shallker-wang-dever/deps/array-foreach-shim/index.js");
+require.alias("shallker-array-foreach-shim/index.js", "shallker-wang-dever/deps/array-foreach-shim/index.js");
+require.alias("shallker-array-foreach-shim/index.js", "shallker-array-foreach-shim/index.js");
+require.alias("shallker-wang-dever/component.js", "shallker-wang-dever/index.js");
+require.alias("shallker-wang-eventy/index.js", "shallker-wang-eventy/index.js");
+require.alias("component-jquery/index.js", "base-ui-modal/deps/jquery/index.js");
+
+require.alias("base-ui-modal/index.js", "base-ui-modal/index.js");
 
 require.alias("womb-controller/index.js", "uhave-breadtrip/deps/controller/index.js");
 require.alias("womb-controller/index.js", "uhave-breadtrip/deps/controller/index.js");
